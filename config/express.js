@@ -29,7 +29,6 @@ app.use(cors());
 // mount all routes on /api path
 app.use('/documentation', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 app.use('/api', routes);
-app.use('/', (req, res) => res.redirect('/documentation'));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => next({ status: 404, message: `Can not found ${req.url}` }));
