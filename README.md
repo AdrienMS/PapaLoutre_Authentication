@@ -39,7 +39,7 @@ If you add changes, run the following command so that docker can take them into 
 docker-compose up --build
 ```
 
-Then, the node server will run on localhost:3000 and the postgres on localhost:5432
+Then, the node server will run on localhost:3001 and the postgres on localhost:5432
 
 ## Without Docker
 
@@ -90,4 +90,4 @@ Start server:
 yarn start
 ```
 
-The server will start on localhost:3000
+The server will start on localhost:3001
