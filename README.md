@@ -1,7 +1,7 @@
-# Papa Loutre Rest API base
+# Papa Loutre Authentication
 ## Overview
 
-This is the rest API base for microservice API of Papa Loutre.
+This is the Authentication API for microservice API of Papa Loutre.
 This works with :
   - NodeJS 12.3.1
   - Express 4.17.0
@@ -65,12 +65,6 @@ psql -U auth_admin auth
 
 Install [node](https://nodejs.org/en/)
 
-
-Install yarn:
-
-```js
-npm install -g yarn
-```
 
 Install dependencies:
 
