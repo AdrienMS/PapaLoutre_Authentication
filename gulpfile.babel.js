@@ -9,6 +9,7 @@ const paths = {
     js: ['./**/*.js', '!dist/**', '!node_modules/**', '!coverage/**'],
     nonJs: ['./package.json', './.env'],
     swagger: './config/swagger.json',
+    keys: './keys/*.key',
     tests: './server/tests/*.js',
 };
 
@@ -28,6 +29,10 @@ gulp.task('copy', (done) => {
         .src(paths.swagger)
         .pipe(plugins.newer('dist'))
         .pipe(gulp.dest('dist/config'));
+    gulp
+        .src(paths.keys)
+        .pipe(plugins.newer('dist'))
+        .pipe(gulp.dest('dist/keys'));
     done();
 });
 

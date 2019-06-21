@@ -7,7 +7,7 @@ const helmet = require('helmet');
 const swaggerUI = require('swagger-ui-express');
 const methodOverride = require('method-override');
 const errorHandling = require('../lib/error/index');
-const routes = require('../app/routes/index');
+const routes = require('../app/routes/index.route');
 const swaggerDocument = require('./swagger.json');
 
 const app = express();

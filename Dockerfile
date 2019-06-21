@@ -1,13 +1,13 @@
 FROM node:12.3
-EXPOSE 3001 9229
+EXPOSE 3001 9230
 
 WORKDIR /home/app
 
 COPY package.json /home/app/
-COPY yarn.lock /home/app/
+COPY package-lock.json /home/app/
 
-RUN yarn
+RUN npm install
 
 COPY . /home/app
 
-CMD yarn start
+CMD npm start
