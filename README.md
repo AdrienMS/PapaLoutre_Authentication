@@ -17,6 +17,17 @@ This works with :
 
 
 # Getting Started
+## Generate SSH keys
+
+You have to generate SSH RSA keys.
+You can do it with ssh-keygen command or with this link : http://travistidwell.com/jsencrypt/demo/
+Copy your private key in keys/private.key.example, and your public key in keys/public.key.example
+Then run :
+```sh
+mv keys/private.key.example keys/private.key
+mv keys/public.key.example keys/public.key
+```
+
 ## With Docker
 
 Run docker compose:
