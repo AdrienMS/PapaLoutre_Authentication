@@ -35,8 +35,12 @@ class Auth {
     }
 
     async checkUsernameAndEmailWithoutPassword() {
-        const query = `SELECT exists (SELECT 1 FROM auth WHERE username = '${this.username}' OR email = '${this.email}')`;
-        const data = await db(query);
+        const data = await db(`SELECT exists (SELECT 1 FROM auth WHERE username = '${this.username}' OR email = '${this.email}')`);
+        return data;
+    }
+
+    async checkIfExistWithID() {
+        const data = await db(`SELECT exists (SELECT 1 FROM auth WHERE id = '${this.id}')`);
         return data;
     }
 
@@ -56,7 +60,7 @@ class Auth {
         return token;
     }
 
-    verifyToken() {
+    async verifyToken() {
         const verifyOption = {
             expiresIn: '12h',
             algorithm: ['RS256'],
@@ -69,7 +73,14 @@ class Auth {
                 return;
             }
             verify = { success: true, datas: decoded };
+            this.id = verify.datas.uuid;
         });
+        if (verify.success) {
+            const data = await this.checkIfExistWithID();
+            if (!data.rows[0].exists) {
+                verify = { success: false, error: 'This ID is not found' };
+            }
+        }
         return verify;
     }
 
@@ -87,6 +98,11 @@ class Auth {
 
     async register() {
         const data = await db(`INSERT INTO auth (username, password, email, created_on) VALUES ('${this.username}', '${this.password}', '${this.email}', current_timestamp)`);
+        return data;
+    }
+
+    async delete() {
+        const data = await db(`DELETE FROM auth WHERE id = ${this.id}`);
         return data;
     }
 }

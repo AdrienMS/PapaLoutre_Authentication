@@ -11,7 +11,8 @@ router.get('/verify', async (req, res, next) => {
     }
     if (token) {
         const auth = new Auth('verify', 'verify', null, null, null, token, null);
-        const verify = auth.verifyToken();
+        const verify = await auth.verifyToken();
+        console.info(verify);
         if (verify.success) {
             res.status(200);
             res.json({
