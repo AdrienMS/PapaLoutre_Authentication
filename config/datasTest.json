@@ -1,0 +1,5 @@
+{
+    "datas": [
+        { "id": 1, "username": "Testtest", "password": "Test1234", "email": "test@test.fr", "created_on": "current_timestamp", "token": "", "last_login": "" }
+    ]
+}

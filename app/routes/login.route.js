@@ -42,10 +42,10 @@ router.post('/login', async (req, res, next) => {
                             next({ status: 500, message: err });
                         });
                 } else {
-                    next({ status: 400, message: 'Username / Email with password is incorrect' });
+                    next({ status: 400, message: 'Password is incorrect' });
                 }
             } else {
-                next({ status: 400, message: 'Password is incorrect' });
+                next({ status: 400, message: 'Username / Email with password is incorrect' });
             }
         })
         .catch(() => {

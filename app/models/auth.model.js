@@ -12,9 +12,9 @@ class Auth {
     constructor(username, password, email, id = null,
         createdOn = null, token = null, lastLogin = null) {
         this.id = id;
-        this.username = username;
+        this.username = username === undefined ? null : username;
         this.password = password;
-        this.email = email;
+        this.email = email === undefined ? null : email;
         this.created_on = createdOn;
         this.token = token;
         this.last_login = lastLogin;
